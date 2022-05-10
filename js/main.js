@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showResult() {
     const finalResultEl = document.getElementById("final-score");
-    finalResultEl.textContent = "Wordle 1 - You win!";
+    finalResultEl.textContent = "You win!";
 
     const totalWins = window.localStorage.getItem("totalWins") || 0;
     window.localStorage.setItem("totalWins", Number(totalWins) + 1);
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showLosingResult() {
     const finalResultEl = document.getElementById("final-score");
-    finalResultEl.textContent = `Wordle 1 - Unsuccessful Today!`;
+    finalResultEl.textContent = `Idiot! The word is "${currentWord.toUpperCase()}".`;
 
     window.localStorage.setItem("currentStreak", 0);
   }
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (guessedWord === currentWord) {
         setTimeout(() => {
-          const okSelected = window.confirm("Well done!");
+          const okSelected = true;
           if (okSelected) {
             clearBoard();
             showResult();
@@ -259,9 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (guessedWords.length === 6 && guessedWord !== currentWord) {
         setTimeout(() => {
-          const okSelected = window.confirm(
-            `Sorry, you have no more guesses! The word is "${currentWord.toUpperCase()}".`
-          );
+          const okSelected = true;
           if (okSelected) {
             clearBoard();
             showLosingResult();
