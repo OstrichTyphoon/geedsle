@@ -26,10 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function handleSumbitWord() {
-        const currentWordArr =getCurrentWordArr()
-        if (currentWordArr.length !==5) {
+        const currentWordArr = getCurrentWordArr();
+        if (currentWordArr.length !== 5 ) {
             window.alert("Word must be 5 letters");
         }
+
+        const currentWord = currentWordArr.join('');
+
+        if(currentWord === word) {
+            window.alert("Congratulations!");
+        }
+
+        if (guessedWords.length === 6) {
+            window.alert("Sorry you have no more guesses");
+        }
+
+        guessedWords.push([]);
+
     }
 
     function createSquares() {
